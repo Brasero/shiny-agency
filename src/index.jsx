@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ThemeProvider } from './utils/context';
+import { ThemeProvider, SurveyProvider } from './utils/context';
 import GlobalStyle from './utils/style/GlobalStyle';
 
 import Home from './pages/Home/Index'
@@ -26,10 +26,14 @@ ReactDOM.render(
             <Home />
           </Route>
           <Route path="/survey/:questionNumber">
-            <Survey />
+            <SurveyProvider>
+              <Survey />
+            </SurveyProvider>
           </Route>
           <Route exact path="/results">
-            <Results />
+            <SurveyProvider>
+              <Results />
+            </SurveyProvider>
           </Route>
           <Route exact path="/freelances">
             <Freelances />

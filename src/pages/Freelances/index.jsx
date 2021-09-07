@@ -4,6 +4,7 @@ import { Loader } from '../../utils/style/Atoms'
 import Card from '../../components/Card'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import Error from '../../components/Error'
 
 const CardsContainer = styled.div`
         display: grid;
@@ -70,7 +71,7 @@ function Freelances() {
     }, [])*/
 
     if (error) {
-        return <span>Oups il y a eu un problème</span>
+        return <Error />
     }
 
     return (
