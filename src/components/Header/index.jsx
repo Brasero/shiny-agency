@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
-import logo from '../../assets/dark-logo.png'
+import logoLight from '../../assets/dark-logo.png'
+import logoDark from '../../assets/light-logo.png'
+import { useTheme } from '../../utils/hooks'
 
 const StyledLink = styled(Link)`
         padding: 15px;
@@ -28,9 +30,12 @@ const StyledImg = styled.img`
 
 
 function Header() {
+
+    const { theme } = useTheme()
+
     return (
         <StyledNav>
-            <StyledImg src={logo} alt='logo' />
+            {theme === 'light' ? (<StyledImg src={logoLight} alt='logo' />) : (<StyledImg src={logoDark} alt='logo' />)}
             <StyledLink to="/">Acceuil</StyledLink>
             <StyledLink to="/freelances">Freelances</StyledLink>
             <StyledLink to="/survey/1" $isFullLink>Faire le test</StyledLink>

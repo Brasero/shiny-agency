@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { SurveyContext, ThemeContext } from '../../utils/context'
-import { useFetch } from '../../utils/hooks'
+import { SurveyContext } from '../../utils/context'
+import { useFetch, useTheme } from '../../utils/hooks'
 import Error from '../../components/Error'
 import { Loader, StyledLink } from '../../utils/style/Atoms'
 import styled from 'styled-components'
@@ -64,7 +64,7 @@ function formatQueryParams(answers) {
 }
 
 function Results() {
-    const { theme } = useContext(ThemeContext)
+    const { theme } = useTheme()
     
     const { answers } = useContext(SurveyContext)
 
